@@ -32,13 +32,13 @@ function solve() {
   for (let i = 0; i < numOps; i++) {
     let operation = operations.shift();
 
-    if (operation == "÷") {
+    if (operation === "÷") {
       operands.unshift(divide(operands.shift(), operands.shift()));
-    } else if (operation == "×") {
+    } else if (operation === "×") {
       operands.unshift(multiply(operands.shift(), operands.shift()));
-    } else if (operation == "-") {
+    } else if (operation === "-") {
       operands.unshift(subtract(operands.shift(), operands.shift()));
-    } else if (operation == "+") {
+    } else if (operation === "+") {
       operands.unshift(add(operands.shift(), operands.shift()));
     }
   }
@@ -59,7 +59,7 @@ const operators = document.querySelectorAll(".operator");
 
 operators.forEach((operator) => {
   operator.addEventListener("click", () => {
-    if (operations.length == operands.length && userInput) {
+    if (operations.length === operands.length && userInput) {
       operations.push(operator.textContent);
       operands.push(display);
       display = 0;
